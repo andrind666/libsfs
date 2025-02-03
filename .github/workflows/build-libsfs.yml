@@ -22,7 +22,7 @@ jobs:
         run: |
           mkdir -p cef_project
           cd cef_project
-          wget https://cef-builds.spotifycdn.com/cef_binary_132.3.1%2Bg144febe%2Bchromium-132.0.6834.83_linux64.tar.bz2 -o cef.tar.bz2
+          wget -O cef.tar.bz2 "https://cef-builds.spotifycdn.com/cef_binary_132.3.1%2Bg144febe%2Bchromium-132.0.6834.83_linux64.tar.bz2"
           tar -xvf cef.tar.bz2
 
       - name: Build libsfs.so
