@@ -1,0 +1,37 @@
+name: Build libsfs.so (ARM64)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: |
+          sudo apt update && sudo apt install -y ninja-build cmake clang wget
+
+      - name: Download Prebuilt CEF (ARM64)
+        run: |
+          mkdir -p cef_project
+          cd cef_project
+          wget https://cef-builds.spotifycdn.com/cef_binary_132.3.1%2Bg144febe%2Bchromium-132.0.6834.83_linux64.tar.bz2 -o cef.tar.bz2
+          tar -xvf cef.tar.bz2
+
+      - name: Build libsfs.so
+        run: |
+          chmod +x build.sh
+          ./build.sh
+
+      - name: Upload Artifact (libsfs.so)
+        uses: actions/upload-artifact@v3
+        with:
+          name: libsfs-arm64
+          path: libsfs.so
