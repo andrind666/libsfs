@@ -7,7 +7,7 @@
 void initialize_cef() {
     printf("Initializing CEF...\n");
     CefMainArgs main_args;
-    CefExecuteProcess(main_args, NULL, NULL);
+    CefExecuteProcess(main_args, nullptr, nullptr);
 }
 
 void load_url(const char* url) {
