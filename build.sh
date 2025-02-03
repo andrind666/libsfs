@@ -2,7 +2,7 @@
 set -e
 
 echo "Setting up environment..."
-export CEF_PATH=$GITHUB_WORKSPACE/cef_project
+export CEF_PATH=/workspaces/libsfs/cef_project/cef_binary_132.3.1+g144febe+chromium-132.0.6834.83_linux64
 export NDK_TOOLCHAIN=$ANDROID_NDK/toolchains/llvm/prebuilt/linux-x86_64/bin
 export TARGET=aarch64-linux-android
 
